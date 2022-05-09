@@ -2,8 +2,10 @@
 
 const double radiansToDegrees = 57.29577951;
 const double pi = 180 / radiansToDegrees;
+
 const double u = 5; // Distance from base rotation point to secondary rotation point (cm)
 const double v = 5; // Distance from secondary rotation point to end of segment (cm)
+
 bool possible(double c, double d) {
   if ((c * c + d * d <= u * u + 2 * u * v + v * v) && (c * c + d * d >= u * u - 2 * u * v + v * v)) { return true; } else { return false; }
 }
@@ -17,8 +19,6 @@ double alpha(double c, double d) {
     while (v5 >= 360) { v5 -= 360; }
     while (v5 < 0) { v5 += 360; }
     return (v5 * radiansToDegrees) + 7;
-  } else {
-    return;
   }
 }
 double beta(double c, double d) {
@@ -27,8 +27,6 @@ double beta(double c, double d) {
     while (round(v1) > 360) { v1 -= 360; }
     while (round(v1) <= 0) { v1 += 360; }
     return (v1 * -1 + 360) + 17;
-  } else {
-    return;
   }
 }
 
