@@ -1,32 +1,35 @@
-// -------- Wesley's Mathematical Double-Segment Endpoint to Angle Formulas: -------- //
+
+// -------------- Wesley's Mathematical Endpoint to Angle Formulas: -------------- //
 
 const double u = 5; // Distance from base rotation point to secondary rotation point
 const double v = 5; // Distance from secondary rotation point to end of segment
 
 const double radiansToDegrees = 57.29577951;
-const double pi = 180 / radiansToDegrees;
+const double pi = 3.141592654;
 
 bool possible(double c, double d) {
   if ((c * c + d * d <= u * u + 2 * u * v + v * v) && (c * c + d * d >= u * u - 2 * u * v + v * v)) { return true; } else { return false; }
 }
+
 double alpha(double c, double d) {
   if (possible(c, d)) {
-    double angle = pi * floor((c) / (u + v)) + atan(d / c) + acos(((c * c + d * d + u * u - v * v) * sqrt(c * c + d * d)) / (2 * u * c * c + 2 * u * d * d));
-    while (round(angle) >= 360.0) { angle -= 360.0; }
-    while (round(angle) < 0.0) { angle += 360.0; }
-    return (angle * radiansToDegrees);
+    double angle = (pi * floor((c) / (u + v)) + atan(d / c) + acos(((c * c + d * d + u * u - v * v) * sqrt(c * c + d * d)) / (2 * u * c * c + 2 * u * d * d))) * radiansToDegrees;
+    while (round(angle) >= 360) { angle -= 360; }
+    while (round(angle) < 0)    { angle += 360; }
+    return angle;
   }
 }
+
 double beta(double c, double d) {
   if (possible(c, d)) {
     double angle = (acos((u * u + v * v - c * c - d * d) / (2 * u * v)) - pi) * radiansToDegrees;
     while (round(angle) > 360) { angle -= 360; }
-    while (round(angle) <= 0) { angle += 360; }
+    while (round(angle) <= 0)  { angle += 360; }
     return (angle * -1 + 360);
   }
 }
 
-// ---------------------------------------------------------------------------------- //
+// ------------------------------------------------------------------------------- //
 
 
 #include <Servo.h>
@@ -54,19 +57,18 @@ int C = 100;
 int zero_X = 0;
 int zero_Y = 0;
 
-#define joystick1_x (analogRead(1) - zero_X)
-#define joystick1_y (analogRead(2) - zero_Y)
+#define joystick1_x (analogRead(2) - zero_X)
+#define joystick1_y (analogRead(1) - zero_Y)
 #define joystick1_b (digitalRead(8))
 
-#define joystick2_x (analogRead(3) - zero_X)
-#define joystick2_y (analogRead(4) - zero_Y)
+#define joystick2_x (analogRead(4) - zero_X)
+#define joystick2_y (analogRead(3) - zero_Y)
 #define joystick2_b (digitalRead(9))
 
 void setup() {
-  Serial.begin(9600);
   delay(3000);
-  zero_X = analogRead(1);
-  zero_Y = analogRead(2);
+  zero_X = analogRead(2);
+  zero_Y = analogRead(1);
   rotation.attach(7, 500, 2500);
   base.attach(3, 500, 2500);
   joint1.attach(2, 500, 2500);
