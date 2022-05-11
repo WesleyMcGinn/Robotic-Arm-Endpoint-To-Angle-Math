@@ -3,12 +3,12 @@ This repository includes equations that calculate angles in a robotic arm based 
 
 # See It Work!
 You can see the equations work by going to [this link](https://tinyurl.com/wes-fido-math-2).  Please note that in both the desmos simulator and all of the files in this repository, each letter represents something:
- - c - The x-position of the endpoint
- - d - The y-position of the endpoint
- - ⍺ - (Also known as "alpha") The angle (in degrees) from the horizontal base to the end of segment 1.
- - β - (Also known as "beta") The angle difference (in degrees) between the direction of segment 1 and the direction of segment 2, or the angle that segment 2 makes with the continuation of segment 1.
- - u - The length of segment 1
- - v - The length of segment 2
- - q - The amount of inaccuracy after calculating alpha and beta from the values of u, v, c, and d.
+ - _c_ - The **x-position** of the endpoint
+ - _d_ - The **y-position** of the endpoint
+ - _⍺_ - (Also known as "alpha") The **angle (in degrees) from the horizontal base** to the end of segment 1.
+ - _β_ - (Also known as "beta") The **angle difference (in degrees) between the direction of segment 1 and the direction of segment 2**, or the angle that segment 2 makes with the imaginary continuation of segment 1.
+ - _u_ - The **length of segment 1**
+ - _v_ - The **length of segment 2**
+ - _q_ - The amount of **inaccuracy** after calculating alpha and beta from the values of u, v, c, and d.
  
- Please also note that all trigonometric calculations are in degrees, not radians or gradians.  This means that half of one rotation is 180, not 3.141592654.
+#### Please also note that ***all trigonometric calculations are in degrees***, not radians or gradians.  This means that half of one rotation is 180, not 3.141592654.
