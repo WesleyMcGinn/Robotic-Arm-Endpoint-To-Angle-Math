@@ -1,17 +1,3 @@
-What each variable represents:
-    u - The length of the arm segment from the base to the joint
-    v - The length of the arm segment from the joint to the endpoint
-    c - The x-position of the endpoint
-    d - The y-position of the endpoint
-    ⍺ - (Alpha) - The angle that the first segment makes with the ground (counterclockwise)
-    β - (Beta)  - The angle that the second segment makes with the first segment (counterclockwise)
-    q - The inaccuracy after calculating alpha and beta
-
-
-
-
-Equations as text:
-
 Alpha:
 \alpha=180\operatorname{floor}\left(\frac{c}{u+v}\right)+\tan^{-1}\left(\frac{d}{c}\right)+\cos^{-1}\left(\frac{\sqrt{c^{2}+d^{2}}\left(c^{2}+d^{2}+u^{2}-v^{2}\right)}{2uc^{2}+2ud^{2}}\right)
 
