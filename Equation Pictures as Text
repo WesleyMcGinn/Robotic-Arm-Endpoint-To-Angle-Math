@@ -5,7 +5,7 @@ Beta:
 \beta=\cos^{-1}\left(\frac{u^{2}+v^{2}-c^{2}-d^{2}}{2uv}\right)-180
 
 Inaccuracy:
-q=\left|u\cos\alpha+v\cos\left(\alpha+\beta\right)-c\right|+\left|u\sin\alpha+v\sin\left(\alpha+\beta\right)-d\right|
+q=\sqrt{\left(u\cos\alpha+v\cos\left(\alpha+\beta\right)-c_{1}\right)^{2}+\left(u\sin\alpha+v\sin\left(\alpha+\beta\right)-d_{1}\right)^{2}}
 
 Range of Possibility:
 c^{2}+d^{2}\le\left(u+v\right)^{2}\left\{c^{2}+d^{2}\ge\left(u-v\right)^{2}\right\}
